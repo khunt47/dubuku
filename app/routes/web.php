@@ -22,15 +22,22 @@ Route::get('/signup', 'App\Http\Controllers\SignupController@index')->name('sign
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->middleware('auth');
 Route::get('/profile', 'App\Http\Controllers\HomeController@profile')->middleware('auth');
 
-Route::get('/projects', 'App\Http\Controllers\ProjectsController@index')->middleware('auth');
-Route::get('/projects/details/{id}', 'App\Http\Controllers\ProjectsController@get')->middleware('auth');
+
+Route::get('/projects', 'App\Http\Controllers\ProjectsController@display_user_projects')->middleware('auth');
+
+
+Route::get('/tasks', 'App\Http\Controllers\TasksController@index')->middleware('auth');
+Route::get('tasks/details/{id}', 'App\Http\Controllers\TasksController@get')->middleware('auth');
+Route::get('tasks/create', 'App\Http\Controllers\TasksController@create')->middleware('auth');
 
 Route::middleware(['auth', 'admin.only'])->group(function () {
     Route::get('/admin', 'App\Http\Controllers\AdminController@index');
     Route::get('/admin/users', 'App\Http\Controllers\AdminController@users');
     Route::get('/admin/users/create', 'App\Http\Controllers\AdminController@create');
 
-    Route::get('/projects/create', 'App\Http\Controllers\ProjectsController@create');
+    Route::get('/admin/projects', 'App\Http\Controllers\ProjectsController@index')->middleware('auth');
+    Route::get('/admin/projects/details/{id}', 'App\Http\Controllers\ProjectsController@get')->middleware('auth');
+    Route::get('/admin/projects/create', 'App\Http\Controllers\ProjectsController@create');
 });
 
-
+Route::post('/quill/image-upload', 'App\Http\Controllers\QuillUploadController@upload')->middleware('auth')->name('quill.image.upload');

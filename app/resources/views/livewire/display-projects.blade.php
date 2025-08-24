@@ -4,16 +4,16 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>S.No</th>
                     <th>Project Name</th>
+                    <th>Project Details</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse($projects as $index => $project)
                 <tr>
-                    <td>{{ $index + 1 }}</td>
 
-                    <td><a href="/projects/details/{{ $project->id }}">{{ $project->name }}</a></td>
+                    <td>{{ $project->name }}</td>
+                    <td><a href="/admin/projects/details/{{ $project->id }}">View Details</a></td>
                     
                 </tr>
                 @empty

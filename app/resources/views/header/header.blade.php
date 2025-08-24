@@ -15,6 +15,9 @@
     <!-- JS -->
     <script src="/static/js/lib/jquery-3.4.1.min.js"></script>    
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Trix editor -->
+    <link rel="stylesheet" href="/static/css/lib/trix.min.css" crossorigin="anonymous">
+    <script src="/static/js/lib/trix.umd.min.js" crossorigin="anonymous"></script>
     @livewireStyles
 </head>
 <body>

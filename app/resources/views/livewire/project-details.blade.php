@@ -9,7 +9,7 @@
           
             <div class="row mb-3">
                 <div class="col-6 col-md-4"><b>Created On :</b></div>
-                <div class="col-6 col-md-8">{{ $project_details->created_at }}</div>
+                <div class="col-6 col-md-8">{{ $project_details->created_at->format('d M Y, h:i A') }}</div>
             </div>
         </div>
     </div>
