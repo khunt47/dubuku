@@ -35,4 +35,18 @@ class TasksController extends Controller
         ]);
     }
 
+    public function display_my_tasks()
+    {
+        echo view('header.header');
+        echo view('tasks.display_my_tasks');
+        echo view('footer.footer');
+    }
+
+    public function display_my_task_details($task_id, Request $request)
+    {
+        echo view('header.header');
+        echo view('tasks.display_my_task_details', compact('task_id'));
+        echo view('footer.footer');
+    }
+
 }

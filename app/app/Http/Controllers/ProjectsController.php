@@ -35,4 +35,20 @@ class ProjectsController extends Controller
         echo view('footer.footer');
     }
 
+
+    public function user_mapping($project_id, Request $request)
+    {
+        echo view('header.header');
+        echo view('admin.projects.project_user_mapping', compact('project_id'));
+        echo view('footer.footer');
+    }
+
+
+    public function display_project_tasks($project_id, Request $request)
+    {
+        echo view('header.header');
+        echo view('display_project_tasks', compact('project_id'));
+        echo view('footer.footer');
+    }
+
 }

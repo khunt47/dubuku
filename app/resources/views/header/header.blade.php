@@ -13,7 +13,9 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/static/images/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon/favicon-16x16.png">
     <!-- JS -->
-    <script src="/static/js/lib/jquery-3.4.1.min.js"></script>    
+    <script src="/static/js/lib/jquery-3.4.1.min.js"></script>   
+    <script src="/static/js/lib/vue.min.js"></script>
+    <script src="/static/js/lib/axios.min.js"></script> 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Trix editor -->
     <link rel="stylesheet" href="/static/css/lib/trix.min.css" crossorigin="anonymous">
