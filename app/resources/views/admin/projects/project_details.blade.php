@@ -2,6 +2,7 @@
 	<h2>Projects</h2>
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="/home">Home</a></li>
+		<li class="breadcrumb-item"><a href="/admin">Admin</a></li>
 		<li class="breadcrumb-item"><a href="/admin/projects">Projects</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Project Details</li>
 	</ol>

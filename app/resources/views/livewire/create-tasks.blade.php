@@ -19,7 +19,7 @@
         </div>
 
         <div class="mb-3">
-            <label>Task type <font color="red">*</font></label>
+            <label>Issue type <font color="red">*</font></label>
             <select wire:model="task_type" class="form-select">
                 <option value="">-- Select Task Type --</option>
                 <option value="bug">Bug</option>
@@ -55,7 +55,7 @@
         </div>
 
         <button type="submit" wire:loading.attr="disabled" class="btn custom-btn px-md-5">
-            Create Task
+            Create
         </button>
     </form>
 </div>

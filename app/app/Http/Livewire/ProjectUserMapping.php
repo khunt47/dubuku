@@ -8,30 +8,34 @@ use App\Models\Users;
 
 class ProjectUserMapping extends Component
 {
-    public $project_id;
-    public $users = [];         // all users
-    public $selectedUsers = []; // users mapped to project
+    public $projectId;
+    public $users = [];
+    public $selectedUsers = [];
 
     public function mount($projectId)
     {
-        $this->project_id = $projectId;
+        $this->projectId = $projectId;
 
-        $this->users = Users::select('id', 'name', 'email')->get();
+        // Fetch all users of same company as project
+        $project = Projects::findOrFail($projectId);
+        $this->users = Users::where('comp_id', $project->company_id)
+                           ->select('id', 'first_name', 'last_name', 'email')
+                           ->get();
 
-        $project = Projects::with('users')->find($projectId);
-
-        $this->selectedUsers = $project ? $project->users->pluck('id')->toArray() : [];
-    }
-
-    public function updatedSelectedUsers()
-    {
-        // optional: real-time save on checkbox toggle
+        // Already mapped users
+        $this->selectedUsers = $project->users()->pluck('users.id')->toArray();
     }
 
     public function save()
     {
-        $project = Project::findOrFail($this->projectId);
-        $project->users()->sync($this->selectedUsers);
+        $project = Projects::findOrFail($this->projectId);
+
+        $syncData = [];
+        foreach ($this->selectedUsers as $userId) {
+            $syncData[$userId] = ['company_id' => $project->company_id];
+        }
+
+        $project->users()->sync($syncData);
 
         session()->flash('message', 'Users mapped successfully.');
     }

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dubuku - Project management application</title>
-
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="/static/fontawesome/css/all.min.css">
@@ -34,6 +33,9 @@
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-auto menu">
+                    <li class="nav-item me-5">
+                        <a class="nav-link text-dark" href="/issues/create"><i class="fa fa-plus logo" aria-hidden="true"></i>&nbsp Create</a>
+                    </li>
                     @if (auth()->user()->user_role === \App\Models\Users::ROLE_ADMIN)
                     <li class="nav-item me-5">
                         <a class="nav-link text-dark" href="/admin"><i class="fa fa-user-shield logo" aria-hidden="true"></i>&nbsp Admin</a>

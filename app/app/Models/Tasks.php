@@ -10,11 +10,13 @@ class Tasks extends Model
     use HasFactory;
 
     const STATUS_NEW        = 0;
+    const STATUS_TODO       = 0;
     const STATUS_INPROGRESS = 1;
     const STATUS_ONHOLD     = 2;
     const STATUS_COMPLETED  = 3;
     const STATUS_DELETED    = 4;
     const STATUS_MERGED     = 5;
+    const STATUS_IN_REVIEW  = 6;
 
     const PRIORITY_LOW      = 0;
     const PRIORITY_MEDIUM   = 1;
@@ -65,9 +67,10 @@ class Tasks extends Model
             'bug'     => 'Bug',
             'feature' => 'Feature',
             'task'    => 'Task',
+            'improvement' => 'Improvement'
         ];
 
-        return $statuses[$this->ticket_type] ?? 'Bug1';
+        return $statuses[$this->ticket_type] ?? 'Bug';
     }
 
 
