@@ -37,6 +37,13 @@ Route::prefix('projects')->group(function () {
     Route::get('/{id}/sprints/details/{sprintId}', 'App\Http\Controllers\ProjectsController@project_sprint_details')->middleware('auth');
     Route::get('/{id}/issues', 'App\Http\Controllers\ProjectsController@project_issues')->middleware('auth');
     Route::get('/{id}/issues/details/{issueId}', 'App\Http\Controllers\TasksController@get')->middleware('auth');
+
+    //API
+    Route::post('/sprints/create','App\Http\Controllers\SprintsApiController@create');
+    Route::get('/sprints/get/{id}', 'App\Http\Controllers\SprintsApiController@get');
+    Route::get('/{id}/sprints-details/{sprintId}' ,'App\Http\Controllers\SprintsApiController@get_details');
+    Route::post('/{id}/sprints/{sprintId}/status', 'App\Http\Controllers\SprintsApiController@change_status');
+
 });
 
 
